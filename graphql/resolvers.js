@@ -1,13 +1,11 @@
-// Database 영역
-const chanpong = {
-    name: "chanpong",
-    age: 35,
-    gender: "female"
-}
+// Database 호출
+import { people, getById } from "../db/db";
 
+// Database data -> transform -> resolvers
 const resolvers = {
     Query: {
-       person: () => chanpong
+        people: () => people,
+        person: (_, { id }) => getById(id)
     }
 }
 
